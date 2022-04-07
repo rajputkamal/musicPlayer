@@ -1,0 +1,174 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+.app-container {
+  position: relative;
+  overflow-x: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: 80px auto;
+      grid-template-rows: 80px auto;
+}
+
+.header {
+  grid-column: 3 / -1;
+  padding: 20px 10px;
+}
+
+.header .search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .search-bar .input {
+  width: 50%;
+  background-color: #E5E4E2;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  margin-left: auto;
+  padding: 10px 5px;
+  text-indent: 15px;
+}
+
+.header .search-bar .search-icon {
+  position: absolute;
+  font-size: 20px;
+  right: 25px;
+  top: 27px;
+}
+
+.main {
+  grid-column: 3 / -1;
+  padding: 20px;
+}
+
+.main .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.main .buttons .play-pause {
+  padding: 0 10px;
+}
+
+.main .banner {
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.main .banner img {
+  width: 60%;
+  height: 100%;
+}
+
+.main .song-list-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main .song-list-header a {
+  text-decoration: none;
+  color: #848884;
+}
+
+.main .song-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+}
+
+.main .music-player {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.nav {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  grid-row: 1 / -1;
+  border-right: 1px solid #E5E4E2;
+  height: 100vh;
+}
+
+.nav .logo {
+  margin-top: 20%;
+}
+
+.nav .logo img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.nav .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 25px 15px;
+}
+
+.nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 0;
+}
+
+.nav ul a {
+  margin-left: 10%;
+  margin-top: -2%;
+  color: black;
+  text-decoration: none;
+  font-size: 1.4em;
+}
+
+.nav span {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: #848884;
+}
+/*# sourceMappingURL=App.css.map */
