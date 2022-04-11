@@ -1,9 +1,7 @@
-import React from "react";
+import "../styles/App.css";
 import { songList } from "../data/Songlist";
 
-const Song = (props: any) => {
-  console.log(songList);
-  console.log(props);
+const Song = () => {
   return (
     <>
       <table>
@@ -18,37 +16,22 @@ const Song = (props: any) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>
-              <img src={props.image} />{" "}
-            </td>
-            <td>{props.title}</td>
-            <td>{props.playing}</td>
-            <td>{props.duration}</td>
-            <td>{props.year}</td>
-          </tr>
+          {songList.map((songs) => {
+            return (
+              <tr>
+                <td>{songs.id}</td>
+                <td>
+                  <img src={songs.image} className="artist_img" />
+                </td>
+                <td>{songs.title}</td>
+                <td>{songs.listeners}</td>
+                <td>{songs.time}</td>
+                <td>{songs.yearOfAlbum}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-      <li className="song-list">
-        <div>#</div>
-        <div>IMAGE</div>
-        <div>TITLE</div>
-        <div>PLAYING</div>
-        <div>TIME</div>
-        <div>ALBUM</div>
-      </li>
-
-      <li className="song-list">
-        <div>1</div>
-        <div>
-          <img src={props.image} />{" "}
-        </div>
-        <div>{props.title}</div>
-        <div>{props.playing}</div>
-        <div>{props.duration}</div>
-        <div>{props.year}</div>
-      </li>
     </>
   );
 };

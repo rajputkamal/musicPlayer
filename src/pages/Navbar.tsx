@@ -1,4 +1,5 @@
 import "../styles/App.scss";
+import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineUserSwitch,
@@ -17,17 +18,17 @@ const Navbar = () => {
 
       <div className="nav-links">
         <ul>
-          <li>
+          <li className="active">
             <AiOutlineHome />
-            <a href="#">Home</a>
+            <Link to="/"  className="active">Home</Link>
           </li>
           <li>
             <AiOutlineHome />
-            <a href="#">Trends</a>
+            <Link to="/trends">Trends</Link>
           </li>
           <li>
             <AiOutlineBars />
-            <a href="#">Library</a>
+            <Link to="/library">Library</Link>
           </li>
         </ul>
 
@@ -35,15 +36,15 @@ const Navbar = () => {
           <span>Discover</span>
           <li>
             <AiOutlineCalendar />
-            <a href="#">Discover Weekly</a>
+            <Link to="/discover">Discover Weekly</Link>
           </li>
           <li>
             <AiOutlineCiCircle />
-            <a href="#">Made For You</a>
+            <Link to="/playlist">Made For You</Link>
           </li>
           <li>
             <AiOutlineBars />
-            <a href="#">Daily Mix</a>
+            <Link to="/daily">Daily Mix</Link>
           </li>
         </ul>
 
@@ -51,15 +52,15 @@ const Navbar = () => {
           <span>Your Collection</span>
           <li>
             <AiOutlineHeart />
-            <a href="#">Liked Songs</a>
+            <Link to="/likedsongs">Liked Songs</Link>
           </li>
           <li>
             <AiOutlineUserSwitch />
-            <a href="#">Favourite Artists</a>
+            <Link to="/artist">Favourite Artists</Link>
           </li>
           <li>
             <AiOutlineBars />
-            <a href="#">Playlist</a>
+            <Link to="/playlist">Playlist</Link>
           </li>
         </ul>
       </div>
