@@ -14,7 +14,7 @@ const Audioplayer = () => {
     } else {
       setTrackIndex(trackIndex - 1);
     }
-    console.log('prev clicking', setTrackIndex)
+    console.log('prev clicking', songList)
   };
 
   const toNextTrack = () => {
@@ -23,16 +23,16 @@ const Audioplayer = () => {
     } else {
       setTrackIndex(0);
     }
-    console.log('next clicking', setTrackIndex)
+    console.log('next clicking', songList)
   };
 
   return (
     <div className="audio-player">
-      <div className="song-info">
+      {/* <div className="song-info">
         <img src={songList[0].image} />
         <h2 className="title">{songList[0].title}</h2>
         <h3 className="artist">{songList[0].artist}</h3>
-      </div>
+      </div> */}
       <AudioControls
         isPlaying={isPlaying}
         onPrevClick={toPrevTrack}

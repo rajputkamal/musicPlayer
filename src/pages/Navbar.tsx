@@ -8,14 +8,19 @@ import {
   AiOutlineCiCircle,
   AiOutlineBars,
 } from "react-icons/ai";
+// import { ReactComponent as Logo } from "../assets/images/logo.svg";
 
 const Navbar = () => {
+ 
   return (
+
     <nav className="nav">
       <div className="logo">
-        <img src={require("../assets/images/logo.png")} />
+        {/* <Logo /> */}
+        <img src={require("../assets/images/logo.png")}  />
+        
       </div>
-
+    
       <div className="nav-links">
         <ul>
           <li className="active">

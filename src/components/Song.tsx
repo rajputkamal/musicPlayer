@@ -4,7 +4,7 @@ import { songList } from "../data/Songlist";
 const Song = () => {
   return (
     <>
-      <table>
+      <table cellSpacing="0" cellPadding='0'>
         <thead>
           <tr>
             <th>#</th>
@@ -18,6 +18,7 @@ const Song = () => {
         <tbody>
           {songList.map((songs) => {
             return (
+              
               <tr>
                 <td>{songs.id}</td>
                 <td>

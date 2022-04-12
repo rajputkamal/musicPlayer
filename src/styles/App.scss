@@ -30,19 +30,19 @@ body {
 
     .input {
       width: 50%;
-      background-color: #e5e4e2;
+      background-color: #f1f1f1;
       outline: none;
       border: none;
       border-radius: 20px;
       margin-left: auto;
-      padding: 10px 5px;
-      text-indent: 15px;
+      padding: 15px 5px;
+      text-indent: 35px;
     }
     .search-icon {
       position: absolute;
       font-size: 20px;
-      right: 25px;
-      top: 27px;
+      right: 39%;
+      top: 33px;
     }
   }
 }
@@ -108,9 +108,11 @@ body {
       display: flex;
       padding: 16px 0;
 
-      &.active {
+      &:hover{
         font-weight: bold;
         color: red;
+        transition: all 0.3s;
+        font-size: 1.0em;
       }
     }
     a {
@@ -120,9 +122,10 @@ body {
       text-decoration: none;
       font-size: 1.4em;
 
-      &.active {
+      &:hover {
         font-weight: bold;
         color: red;
+        transition: all 0.3s;
       }    
     }
   }
@@ -186,9 +189,11 @@ table {
   tr {
     text-align: center;
     cursor: pointer;
-    &:hover {
-      background-color: #e5e4e2;
-    }
+    
+  }
+  tbody tr:hover {
+    background-color: #e5e4e2;
+    border-left: 5px solid red;
   }
 }
 .artist_img {
