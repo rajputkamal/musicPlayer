@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import ReactAudioPlayer from "react-audio-player";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/App.scss";
 import AudioControls from "./AudioControls";
 import { songList } from "../data/Songlist";
 
 const Audioplayer = () => {
   const [trackIndex, setTrackIndex] = useState(0);
+  const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const audioRef = useRef(new Audio(songList[0].url));
+  const intervalRef = useRef();
+  const isReady = useRef(false);
+
+  const { duration } = audioRef.current;
 
   const toPrevTrack = () => {
     if (trackIndex - 1 < 0) {
@@ -14,7 +20,6 @@ const Audioplayer = () => {
     } else {
       setTrackIndex(trackIndex - 1);
     }
-    console.log('prev clicking', songList)
   };
 
   const toNextTrack = () => {
@@ -23,28 +28,58 @@ const Audioplayer = () => {
     } else {
       setTrackIndex(0);
     }
-    console.log('next clicking', songList)
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    return () => {
+      audioRef.current.pause();
+      clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    audioRef.current.pause();
+
+    audioRef.current = new Audio(songList[0].url);
+    setTrackProgress(audioRef.current.currentTime);
+
+    if (isReady.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      isReady.current = true;
+    }
+  }, [trackIndex]);
 
   return (
     <div className="audio-player">
-      {/* <div className="song-info">
-        <img src={songList[0].image} />
-        <h2 className="title">{songList[0].title}</h2>
-        <h3 className="artist">{songList[0].artist}</h3>
-      </div> */}
       <AudioControls
         isPlaying={isPlaying}
         onPrevClick={toPrevTrack}
         onNextClick={toNextTrack}
         onPlayPauseClick={setIsPlaying}
       />
-      <ReactAudioPlayer
-        src={songList[0].url}
-        autoPlay
-        controls
-        className="music-player"
+      <div className="range-progress">
+        <span>00:00</span>
+        <input
+        type="range"
+        value={trackProgress}
+        step="1"
+        min="0"
+        max={duration ? duration : `${duration}`}
+        className="progress"
       />
+      <span>{songList[0].time}</span>
+      </div>
+     
     </div>
   );
 };

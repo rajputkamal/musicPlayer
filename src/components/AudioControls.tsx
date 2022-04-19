@@ -1,27 +1,33 @@
 import React from "react";
 import "../styles/App.scss";
 import {
+  BiShuffle as Shuffle,
   BiSkipPreviousCircle as Prev,
   BiPlayCircle as Play,
   BiPauseCircle as Pause,
-  BiFastForwardCircle as Next,
+  BiSkipNextCircle as Next,
 } from "react-icons/bi";
+
+import { TiArrowLoop as Loop } from "react-icons/ti";
 
 const AudioControls = (props: any) => {
   return (
     <div className="buttons">
+      <button type="button" className="shuffle">
+        <Shuffle />
+      </button>
       <button
         type="button"
         className="buttons_btn"
         aria-label="Previous"
-        onClick={props.onPrevClick}
+        onClick={props.changeSongIndex}
       >
         <Prev />
       </button>
       {props.isPlaying ? (
         <button
           type="button"
-          className="buttons_btn"
+          className="play-pause"
           onClick={() => props.onPlayPauseClick(false)}
           aria-label="Pause"
         >
@@ -30,7 +36,7 @@ const AudioControls = (props: any) => {
       ) : (
         <button
           type="button"
-          className="buttons_btn"
+          className="play-pause"
           onClick={() => props.onPlayPauseClick(true)}
           aria-label="Play"
         >
@@ -41,9 +47,12 @@ const AudioControls = (props: any) => {
         type="button"
         className="buttons_btn"
         aria-label="Next"
-        onClick={props.onNextClick}
+        onClick={() => props.changeSongIndex(true)}
       >
         <Next />
+      </button>
+      <button type="button" className="buttons_btn">
+        <Loop />
       </button>
     </div>
   );

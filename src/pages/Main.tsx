@@ -1,7 +1,13 @@
+
 import Song from "../components/Song";
+import { songList } from "../data/Songlist";
 import "../styles/App.scss";
 
-const Main = () => {
+const Main = (props) => {
+const playSongHandler = () => {
+
+}
+
   return (
     <div className="main">
       <div className="banner">
@@ -16,6 +22,7 @@ const Main = () => {
           </p>
         </div>
         <Song />
+        
       </div>
     </div>
   );
