@@ -20,7 +20,7 @@ const AudioControls = (props: any) => {
         type="button"
         className="buttons_btn"
         aria-label="Previous"
-        onClick={props.changeSongIndex}
+        onClick={()=>props.changeSongIndex()}
       >
         <Prev />
       </button>

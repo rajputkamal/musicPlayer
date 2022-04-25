@@ -3,12 +3,15 @@ import "../styles/App.scss";
 import AudioControls from "./AudioControls";
 
 const Player = (props: any) => {
-  console.log(props.songs);
   const audioElm = useRef(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
+  const [value, setValue] = useState(0);
+  const [duration, setDuration] = useState(0);
+
   useEffect(() => {
     if (isPlaying) {
-      audioElm.current.play();
+      // audioElm.current.play();
     } else {
       audioElm.current.pause();
     }
@@ -22,15 +25,21 @@ const Player = (props: any) => {
         }
         return s;
       } else {
-        if (s - 1< 0) {
-          return props.songs.length - 1;
+        if (s === 0) {
+          return s;
+        } else {
+          return s - 1;
         }
-        return s - 1;
       }
     });
-    // audioElm.current.load();
-    audioElm.current.play()
+    audioElm.current.load();
+    audioElm.current.play();
   };
+
+  useEffect(() => {
+    setIsPlaying(true);
+    audioElm.current?.play();
+  }, [props.currentSongIndex]);
 
   return (
     <div className="audio-player">
@@ -42,16 +51,15 @@ const Player = (props: any) => {
       <audio
         src={props.songs[props.currentSongIndex].url}
         ref={audioElm}
+        onLoadedMetadata={(e: any) => {
+          setDuration(e.target.duration);
+        }}
+        onTimeUpdate={(e: any) => {
+          setValue(e.target?.currentTime);
+        }}
       ></audio>
       <div className="range-progress">
-        <input
-          type="range"
-          //   value={trackProgress}
-          step="1"
-          min="0"
-          //   max={duration ? duration : `${duration}`}
-          className="progress"
-        />
+        <progress value={value} max={duration} style={{ width: "100%" }} />
       </div>
     </div>
   );

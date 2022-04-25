@@ -4,8 +4,12 @@ import { songList } from "../data/Songlist";
 import "../styles/App.scss";
 
 const Main = (props) => {
-const playSongHandler = () => {
-
+const receiveSongHandler = (songData) => {
+  const songsData = {
+    ...songData,
+    id: Date.now()
+  }
+  props.onReceiveSong(songsData)
 }
 
   return (
@@ -21,7 +25,7 @@ const playSongHandler = () => {
             <a href="/">See All</a>
           </p>
         </div>
-        <Song />
+        <Song onReceieveSongData ={receiveSongHandler}/>
         
       </div>
     </div>

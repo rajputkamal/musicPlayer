@@ -1,21 +1,18 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../styles/App.css";
 import { songList } from "../data/Songlist";
 import { FaPlay as Play, FaPause as Pause } from "react-icons/fa";
 
-const Song = () => {
+const Song = (props) => {
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  let isplaying = false;
+  const songReceiveHandler = (song) => {
+    const songData = {
+      url: song.url
+    };
 
-  const [activeSong, setActiveSong] = useState()
-
-  // const songReceiveHandler = () => {
-  //   const songData = {
-  //     title: songList.title,
-  //     songUrl: songList.url
-  //   }
-  //   console.log("songData", songs)
-  // }
+    props.onReceieveSongData(songData);
+  };
   return (
     <>
       <table cellSpacing="0" cellPadding="0">
@@ -32,12 +29,8 @@ const Song = () => {
         <tbody>
           {songList.map((songs) => {
             return (
-              <tr
-                key={songs.id}
-                
-                onClick={() => console.log("songs in songlist",songs)}
-              >
-                <td>{!isplaying ? <Play /> : <Pause />}</td>
+              <tr key={songs.id} onClick={() => songReceiveHandler(songs)}>
+                <td>{!isPlaying ? <Play /> : <Pause />}</td>
                 <td>
                   <img src={songs.image} className="artist_img" />
                 </td>
