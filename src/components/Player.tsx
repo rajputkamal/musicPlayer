@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/App.scss";
+import '../styles/_breakpoints.scss';
+import "../styles/style.css";
 import AudioControls from "./AudioControls";
 
 const Player = (props: any) => {

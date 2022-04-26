@@ -1,4 +1,5 @@
 import "../styles/App.scss";
+import '../styles/_breakpoints.scss';
 import { Link } from "react-router-dom";
 import {
   AiOutlineHome,

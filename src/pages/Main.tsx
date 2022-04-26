@@ -1,7 +1,8 @@
-
 import Song from "../components/Song";
 import { songList } from "../data/Songlist";
 import "../styles/App.scss";
+import "../styles/style.css";
+import "../styles/_breakpoints.scss";
 
 const Main = (props) => {
 const receiveSongHandler = (songData) => {

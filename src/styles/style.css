@@ -1,0 +1,75 @@
+@media only screen and (max-width: 720px){
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        grid-column: 1 / -1 !important;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    .header .mobile-logo img {
+        display: block !important;
+      }
+
+    .header .search-bar .search-icon {
+        display: none !important;
+    }
+    
+    .header .search-bar .input {
+        width: 100% !important;
+        padding: 0 !important;
+        text-indent: 10px !important;
+        height: 40px !important;
+    }
+    
+    .audio-player {
+        grid-column: 1 / -1 !important;
+        padding: 0 !important;
+    }
+    
+    .main {
+        grid-column: 1 / -1 !important;
+    }
+    
+    .main .song-list-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    
+    }
+    
+    .main .song-list-header h1 {
+        margin: 0;
+        font-size: 18px;
+    
+    }
+    
+    .main .song-list-header p {
+        margin: 0;
+        font-size: 12px;
+    
+    }
+    
+    table {
+        font-size: 10px;
+    }
+    .artist_image {
+        width: 45px;
+        height: 40px;
+    }
+    
+    
+
+} 
+
+
+@media only screen and (min-width: 720px) {
+    .header .mobile-logo img {
+        display: none;
+      }
+
+}
+
+
+
